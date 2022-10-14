@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -20,12 +21,28 @@ public class TopicsPage extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_topics_page);
-        //Creates Button to leave homepage
+        //Creates Button to go to setting page
         ImageButton settingsButton = (ImageButton) findViewById((R.id.settings_page_button));
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TopicsPage.this, SettingsPage.class));
+            }
+        });
+
+        //Creates button for camera with on/off switch instructions
+        Button camerabtn = (Button) findViewById(R.id.on_off_button);
+        camerabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent();
+                    intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(intent);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+
             }
         });
     }

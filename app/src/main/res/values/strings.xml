@@ -8,6 +8,7 @@
     <string name="home_page_button">Get Started</string>
     <string name="settings_page_button">SettingsButton</string>
     <string name="back_button">BackButton</string>
+    <string name="on_off_button">On/Off Switch</string>
 
     <string name="spinner_languages">dropDownMenuExample</string>
     <string-array name="spinner_languages">
