@@ -3,5 +3,19 @@
     <string name="home_page">Home Page</string>
     <string name="app_title">Augmented Instruction</string>
     <string name="topic_title">Select Your Instruction</string>
+    <string name="settings_title">Settings</string>
+    <string name="language_title">Languages</string>
     <string name="home_page_button">Get Started</string>
+    <string name="settings_page_button">SettingsButton</string>
+    <string name="back_button">BackButton</string>
+
+    <string name="spinner_languages">dropDownMenuExample</string>
+    <string-array name="spinner_languages">
+        <item>English</item>
+        <item>Mandarin</item>
+        <item>Hindi</item>
+        <item>Spanish</item>
+        <item>French</item>
+    </string-array>
+
 </resources>
