@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Final AR App</string>
     <string name="home_page">Home Page</string>
-    <string name="app_title">Augmented Instruction</string>
-    <string name="topic_title">Select Your Instruction</string>
+    <string name="app_title">AR Instruction</string>
+    <string name="topic_title">Topics</string>
     <string name="settings_title">Settings</string>
     <string name="language_title">Languages</string>
     <string name="home_page_button">Get Started</string>
