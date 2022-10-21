@@ -9,6 +9,10 @@
     <string name="settings_page_button">SettingsButton</string>
     <string name="back_button">BackButton</string>
     <string name="on_off_button">On/Off Switch</string>
+    <string name="camera_header">Welcome to Augmented Instruction</string>
+    <string name="prev_step">Prev Step</string>
+    <string name="next_step">Next Step</string>
+    <string name="step_one">Find the Power Switch</string>
 
     <string name="spinner_languages">dropDownMenuExample</string>
     <string-array name="spinner_languages">

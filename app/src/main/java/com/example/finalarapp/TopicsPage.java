@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -12,6 +11,8 @@ import android.widget.ImageButton;
 
 
 public class TopicsPage extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +36,23 @@ public class TopicsPage extends AppCompatActivity {
         camerabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
+
+                startActivity(new Intent(TopicsPage.this, CameraPage2.class));
+
+
+
+
+
+
+                /*try{
                     Intent intent = new Intent();
                     intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivity(intent);
                 }catch(Exception e){
                     e.printStackTrace();
                 }
+
+                 */
 
             }
         });
