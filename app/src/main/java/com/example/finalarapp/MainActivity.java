@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.view.Window;
 
 
 import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.label.Category;
 import org.tensorflow.lite.task.core.BaseOptions;
 import org.tensorflow.lite.task.vision.detector.Detection;
 import org.tensorflow.lite.task.vision.detector.ObjectDetector;
@@ -31,6 +33,7 @@ import java.util.*;
 public class MainActivity extends AppCompatActivity {
 
 
+    public static ObjectDetector model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //Initialize Object Detector
+
         //Object Detector options
         ObjectDetector.ObjectDetectorOptions options =
                 ObjectDetector.ObjectDetectorOptions.builder()
-                        .setBaseOptions(BaseOptions.builder().useGpu().build())
+                        .setBaseOptions(BaseOptions.builder().useNnapi().build())
                         .setMaxResults(1)
                         .build();
-
 
         //Open file from asset folder and read/write it to new file thats accessible on emulator
         File model1 = Environment.getExternalStorageDirectory();
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream outputStream = new FileOutputStream(model4, false);
             int read;
             byte[] bytes = new byte[mngr.available()];
-            while ((read = mngr.read(bytes)) != -1){
+            while ((read = mngr.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, read);
             }
 
@@ -73,17 +77,24 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Create Object Detector and Run Test Image
         try {
-            ObjectDetector objectDetector = ObjectDetector.createFromFileAndOptions(model4, options);
-            Bitmap input = BitmapFactory.decodeResource(getResources(), R.mipmap.modeltest1); //Converts manual image to bitmmap for input
-            TensorImage image = TensorImage.fromBitmap(input);
-            List<Detection> results = objectDetector.detect(image);
-
-
+            model = ObjectDetector.createFromFileAndOptions(model4, options); //Create object detector
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        //Block of code to examine results from object detector
+        ModelCreate detector = new ModelCreate();
+        Bitmap input = BitmapFactory.decodeResource(getResources(), R.mipmap.modeltest1); //Converts manual image to bitmmap for input
+        List<String> feedback = detector.feedInput(model,input);
+        String one = feedback.get(0);
+        String two = feedback.get(1);
+        String three = feedback.get(2);
+
+
+
+
 
 
 

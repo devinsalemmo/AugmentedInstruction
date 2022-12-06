@@ -3,6 +3,8 @@ package com.example.finalarapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -15,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class SettingsPage extends AppCompatActivity {
 
     @Override
@@ -25,6 +29,10 @@ public class SettingsPage extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_settings_page);
+
+
+
+
         //Creates Button to leave homepage
         ImageButton settingsButton = (ImageButton) findViewById((R.id.back_button));
         settingsButton.setOnClickListener(new View.OnClickListener() {
