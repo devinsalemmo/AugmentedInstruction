@@ -94,13 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
         //Creates Button to leave homepage
         Button homeButton = (Button) findViewById((R.id.home_page_button));
         homeButton.setOnClickListener(new View.OnClickListener() {

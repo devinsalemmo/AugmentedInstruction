@@ -36,23 +36,7 @@ public class TopicsPage extends AppCompatActivity {
         camerabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(TopicsPage.this, CameraPage2.class));
-
-
-
-
-
-
-                /*try{
-                    Intent intent = new Intent();
-                    intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivity(intent);
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-
-                 */
+                startActivity(new Intent(TopicsPage.this, CameraActivity.class));
 
             }
         });
