@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         ObjectDetector.ObjectDetectorOptions options =
                 ObjectDetector.ObjectDetectorOptions.builder()
                         .setBaseOptions(BaseOptions.builder().useNnapi().build())
-                        .setMaxResults(1)
+                        .setMaxResults(3)
                         .build();
 
         //Open file from asset folder and read/write it to new file thats accessible on emulator
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
-            InputStream mngr = getAssets().open("app_model_v2.tflite");
+            InputStream mngr = getAssets().open("app_model_v3.tflite");
             FileOutputStream outputStream = new FileOutputStream(model4, false);
             int read;
             byte[] bytes = new byte[mngr.available()];
