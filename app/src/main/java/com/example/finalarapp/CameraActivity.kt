@@ -24,6 +24,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.AspectRatio
@@ -131,6 +132,13 @@ class CameraActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     findViewById<TextView>(R.id.text_prediction).text = feedback[2]
+                    findViewById<ImageView>(R.id.imageView2).translationX = feedback[0].toFloat()
+                    findViewById<ImageView>(R.id.imageView2).translationY = feedback[1].toFloat()
+                    if (feedback[2] == "switch_on"){
+                        findViewById<TextView>(R.id.textView9).text = "Now, find the cover"
+                    }
+
+
                 }
 
 
